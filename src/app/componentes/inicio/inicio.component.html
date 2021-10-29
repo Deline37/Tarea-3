@@ -1,0 +1,38 @@
+
+<img id ="imagenInicio" src="../../../assets/imgInicio.jpg" alt="imagenInicio">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 ml-5"> 
+            <ul class="noticiasDestacadas">
+                <li *ngFor="let noticia of listaNoticiasDestacadas" class="ml-3">
+                    <div class="card">
+                        <img src="../../../assets/{{noticia.imagen}}.jpg" class="img-fluid" alt="{{noticia.imagen}}">
+                        <div class="card-body cuerpo" [ngClass]="{verde: noticia.idCategoria==1, azul : noticia.idCategoria == 2,
+                            darkRed : noticia.idCategoria == 3, morado : noticia.idCategoria == 4, darkBlue : noticia.idCategoria == 5, rojo: noticia.idCategoria == 6}">
+                            <h5 class="card-title">{{noticia.nombreNoticia}}</h5>
+                            <p class="card-text">{{noticia.noticiaCorta}}</p> 
+                            <button [routerLink]="['/detalleNoticia', noticia.nombreNoticia,noticia.id]">Leer más</button>
+                        </div>
+                    </div> 
+                </li>
+            </ul> 
+            
+            <ul class="noticiasNoDestacadas">
+                <li *ngFor="let noticia of listaNoticias">
+                    <div class="card noDest">
+                        <img src="../../../assets/{{noticia.imagen}}.jpg" class="img-fluid" alt="{{noticia.imagen}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{noticia.nombreNoticia}}</h5>
+                            <p class="card-text">{{noticia.noticiaCorta}}</p> 
+                            <button [routerLink]="['/detalleNoticia',noticia.nombreNoticia,noticia.id]">Leer más</button>
+                        </div>
+                    </div>   
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
